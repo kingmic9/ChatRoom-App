@@ -3,7 +3,10 @@ import java.io.*;
 import java.util.Scanner;
 
 
-/** A class to manage all client actions like send / receive a message*/
+/** A class to manage all client actions like send / receive a message
+*
+* WARNING: CHANGE LOCALHOST TO IP OF MACHINE THE SERVER IS RUNNING ON SO OTHER USERS ON OTHER MACHINES CAN CONNECT 
+*/
 public class Client {
 
     // Socket for the client to be read or written from
@@ -79,7 +82,8 @@ public class Client {
         System.out.print("Enter your username for the chatroom: ");
         String username = scanner.nextLine();
 
-        Socket socket = new Socket("192.168.68.76", 5678);
+        /** WARNING: CHANGE LOCALHOST TO IP OF MACHINE THE SERVER IS RUNNING ON SO OTHER USERS ON OTHER MACHINES CAN CONNECT */
+        Socket socket = new Socket("localhost", 5678);
         Client client = new Client(socket, username);
         client.listenForMessage();
         client.sendMessage();
